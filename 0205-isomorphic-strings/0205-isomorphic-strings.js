@@ -3,6 +3,9 @@
  * @param {string} t
  * @return {boolean}
  */
+
+//스스로 풀지 못했음. 해답 봄. ㅠㅠ
+//I couldn't solve it. :(
 var isIsomorphic = function(s, t) {
     const map1 = [256];
     const map2 = [256];
