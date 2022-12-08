@@ -11,7 +11,7 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    let set = new Set();
+    const set = new Set();
     while(head != null) {
         if(set.has(head)) {
             return true;
