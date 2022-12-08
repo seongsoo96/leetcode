@@ -12,19 +12,19 @@
  * @return {ListNode}
  */
 //Approach 1 : Brute Force 
-// var getIntersectionNode = function(headA, headB) {
-//     while(headA != null) {
-//         let bHead = headB;
-//         while(bHead != null) {
-//             if(headA === bHead) {
-//                 return headA
-//             }
-//             bHead = bHead.next;
-//         }
-//         headA = headA.next;
-//     }
-//     return null
-// };
+var getIntersectionNode = function(headA, headB) {
+    while(headA != null) {
+        let bHead = headB;
+        while(bHead != null) {
+            if(headA === bHead) {
+                return headA
+            }
+            bHead = bHead.next;
+        }
+        headA = headA.next;
+    }
+    return null
+};
 
 //Approach 2 : Two Pointers
 var getIntersectionNode = function(headA, headB) {
