@@ -10,6 +10,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+//Approach 1: Hash Table
 var hasCycle = function(head) {
     const set = new Set();
     while(head != null) {
@@ -21,3 +22,21 @@ var hasCycle = function(head) {
     }
     return false;
 };
+
+//Approach 2: Floyd's Cycle Finding Algorithm
+var hasCycle = function(head) {
+    if (head == null) {
+        return false;
+    }
+
+    let slow = head;
+    let fast = head.next;
+    while (slow != fast) {
+        if (fast == null || fast.next == null) {
+            return false;
+        }
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return true;
+}
