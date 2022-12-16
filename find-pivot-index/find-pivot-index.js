@@ -3,26 +3,16 @@
  * @return {number}
  */
 var pivotIndex = function(nums) {
-    const length = nums.length;
-    for(let i=0; i<length; i++) {
-        const pivot = i;
-        
-        let leftSum = 0;
-        let leftIndex = pivot-1;
-        while(leftIndex > -1) {
-            leftSum += nums[leftIndex];
-            leftIndex--;
+    let sum = 0;
+    let sumLeft = 0;
+    for(const n of nums) {
+        sum += n;
+    }
+    for(let i=0; i<nums.length; i++) {
+        if(sumLeft === sum - sumLeft - nums[i]) {
+            return i;
         }
-        let rightSum = 0;
-        let rightIndex = pivot+1;
-        while(rightIndex < length) {
-            rightSum += nums[rightIndex];
-            rightIndex++;
-        }
-        
-        if(leftSum === rightSum) {
-            return pivot;
-        }
+        sumLeft += nums[i];
     }
     return -1;
 };
