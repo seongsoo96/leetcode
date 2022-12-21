@@ -19,4 +19,5 @@ var reverseList = function(head) {
         curr = nextTemp;
     }
     return prev
+    
 };
