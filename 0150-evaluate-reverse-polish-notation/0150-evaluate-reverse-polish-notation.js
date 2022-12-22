@@ -21,11 +21,7 @@ var evalRPN = function(tokens) {
                     stack.push(b*a);
                     break;
                 case "/" :
-                    if(b/a > 0) {
-                        stack.push(Math.floor(b/a));
-                    } else {
-                        stack.push(Math.ceil(b/a))
-                    }
+                    stack.push(Math.trunc(b/a));
                     break;
             }
         }
