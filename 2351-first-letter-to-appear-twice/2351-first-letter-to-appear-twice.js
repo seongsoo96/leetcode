@@ -3,13 +3,14 @@
  * @return {character}
  */
 var repeatedCharacter = function(s) {
-    const map = new Map();
-    for(let i=0; i<s.length; i++) {
-        let count = map.get(s[i]) ?? 0;
-        count += 1;
-        if(count === 2) {
-            return s[i];
+    const set = new Set();
+    
+    for (let i = 0; i < s.length; i += 1) {
+        const currentLetter = s[i]
+        if(set.has(currentLetter)) {
+             return currentLetter 
         }
-        map.set(s[i], count);
+        set.add(currentLetter);
     }
+
 };
