@@ -3,21 +3,15 @@
  * @return {number}
  */
 var minimumCardPickup = function(cards) {
-    const map = new Map()
-    for(const [i, c] of cards.entries()) {
-        if(!map.has(c)) {
-            map.set(c, [])
+    let dic = new Map();
+    let ans = Infinity;
+    for (let i = 0; i < cards.length; i++) {
+        if (dic.has(cards[i])) {
+            ans = Math.min(ans, i - dic.get(cards[i]) + 1);
         }
-        map.get(c).push(i)
+        
+        dic.set(cards[i], i);
     }
-    let min = Number.MAX_SAFE_INTEGER
-    
-    for(const [k,a] of map) {
-        for(let i=0; i<a.length-1; i++) {
-            let diff = a[i+1] - a[i] + 1;
-            min = Math.min(min, diff);
-        }
-    }
-    
-    return min === Number.MAX_SAFE_INTEGER ? -1 : min
+
+    return ans == Infinity ? -1 : ans;
 };
