@@ -10,30 +10,14 @@ var minimumCardPickup = function(cards) {
         }
         map.get(c).push(i)
     }
-    
+    console.log(map);
     let min = Number.MAX_SAFE_INTEGER
     
-    const arr = [];
-    for(const v of map.values()) {
-        if(v.length > 1) {
-            arr.push(v)
+    for(const [k,a] of map) {
+        for(let i=0; i<a.length-1; i++) {
+            let diff = a[i+1] - a[i] + 1;
+            min = Math.min(min, diff);
         }
-    }
-    
-    for(const a of arr) {
-        // if(a.length === 2) {
-        //     const diff = v[1] - v[0] + 1;
-        //     if(min > diff) {
-        //         min = diff;
-        //     }
-        // } else {
-            for(let i=1; i<a.length; i++) {
-                let diff = a[i] - a[i-1] + 1;
-                if(min > diff) {
-                    min = diff;
-                }
-            }
-        // }
     }
     
     return min === Number.MAX_SAFE_INTEGER ? -1 : min
