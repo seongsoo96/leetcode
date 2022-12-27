@@ -10,7 +10,6 @@ var minimumCardPickup = function(cards) {
         }
         map.get(c).push(i)
     }
-    console.log(map);
     let min = Number.MAX_SAFE_INTEGER
     
     for(const [k,a] of map) {
