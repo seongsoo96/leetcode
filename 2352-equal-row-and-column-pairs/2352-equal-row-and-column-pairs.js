@@ -22,16 +22,11 @@ var equalPairs = function(grid) {
         }
         map.set(g, map.get(g)+1);
     }
-    console.log(map);
     for(const r of row) {
         if(map.has(r)) {
             count += map.get(r);
         }
     }
-    
-    
-    
-    console.log(grid);
-    console.log(row);
+
     return count;
 };
