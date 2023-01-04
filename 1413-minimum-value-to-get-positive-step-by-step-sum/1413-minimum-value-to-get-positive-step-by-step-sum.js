@@ -6,10 +6,11 @@ var minStartValue = function(nums) {
     for(let i=1; i<nums.length; i++) {
         nums[i] += nums[i-1];
     }
-    nums.sort((a,b) => a-b);
-    if(nums[0] > 0) {
-        return 1;
-    } else {
-        return 1-nums[0]
+    let min = Number.MAX_SAFE_INTEGER
+    for(let i=0; i<nums.length; i++) {
+        if(nums[i] < min) {
+            min = nums[i]
+        }
     }
+    return min >= 0 ? 1 : 1-min
 };
