@@ -19,6 +19,4 @@ var swapPairs = function(head) {
         first.next = swapPairs(first.next);
     }
     return second;
-    
-    console.log(head);
 };
