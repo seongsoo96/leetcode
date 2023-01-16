@@ -17,20 +17,23 @@ var maxAncestorDiff = function(root) {
     let max = root.val
     let result = 0
     
+    const checkMaxMin = (node, cur_max, cur_min) => {
+        max = node.val > cur_max ? node.val : cur_max
+        min = node.val < cur_min ? node.val : cur_min
+    }
+    
     const dfs = (node, cur_max, cur_min) => {
         if(!node.left && !node.right) {
             result = Math.max(result, max-min);
         }
         
         if(node.left) {
-            max = node.left.val > cur_max ? node.left.val : cur_max
-            min = node.left.val < cur_min ? node.left.val : cur_min
+            checkMaxMin(node.left, cur_max, cur_min)
             dfs(node.left, max, min)
         }
         
         if(node.right) {
-            max = node.right.val > cur_max ? node.right.val : cur_max
-            min = node.right.val < cur_min ? node.right.val : cur_min
+            checkMaxMin(node.right, cur_max, cur_min)
             dfs(node.right, max, min)
         }
         
