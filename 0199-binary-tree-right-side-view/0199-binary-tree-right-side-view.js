@@ -20,8 +20,6 @@ var rightSideView = function(root) {
         let level = queue.length;
         let nextQueue = [];
         
-        console.log(queue)
-        
         for(let i=0; i<level; i++) {
             let node = queue[i];
             if(i === level-1) {
