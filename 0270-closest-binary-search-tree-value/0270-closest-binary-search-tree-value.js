@@ -22,6 +22,7 @@ var closestValue = function(root, target) {
             small = node.val
             dfs(node.right)
         }
+
     }
     dfs(root)
     return target-small < big-target ? small : big
