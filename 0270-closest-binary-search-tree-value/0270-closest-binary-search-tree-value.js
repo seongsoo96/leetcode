@@ -11,19 +11,19 @@
  * @param {number} target
  * @return {number}
  */
-var closestValue = function(root, target) {
-    let small = -Infinity, big = Infinity
-    const dfs = (node) => {
-        if(!node) return 0
-        if(node.val > target) {
-            big = node.val
-            dfs(node.left)
-        } else {
-            small = node.val
-            dfs(node.right)
-        }
-
+var closestValue = function(root, target, min=null) {
+    if (root===null){
+        return min;
     }
-    dfs(root)
-    return target-small < big-target ? small : big
+
+    if (min === null || Math.abs(target - root.val) < Math.abs(target - min)) {
+        min = root.val;
+    }
+
+    if (target < root.val){
+        return closestValue(root.left, target, min);
+    }
+    else{
+        return closestValue(root.right, target, min);
+    }
 };
