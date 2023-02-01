@@ -8,10 +8,11 @@ var search = function(nums, target) {
     let right = nums.length-1
     while(left <= right) {
         let mid = Math.floor((left+right)/2)
-        if(nums[mid] === target) {
+        let num = nums[mid]
+        if(num === target) {
             return mid
         }
-        if(nums[mid] > target) {
+        if(num > target) {
             right = mid - 1
         } else {
             left = mid + 1
