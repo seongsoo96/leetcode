@@ -8,12 +8,9 @@ var minEatingSpeed = function(piles, h) {
         let hours = 0;
         for (const bananas of piles) {
             hours += Math.ceil(bananas / k);
-            if(hours > h) {
-                return false
-            }
         }
         
-        return true;
+        return hours <= h;
     }
     
     let left = 1;
