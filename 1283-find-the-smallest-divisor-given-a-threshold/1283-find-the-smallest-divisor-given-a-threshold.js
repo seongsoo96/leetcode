@@ -4,17 +4,32 @@
  * @return {number}
  */
 // Return the sum of division results with 'divisor'.
+let findDivisionSum = (nums, divisor) => {
+    let result = 0
+    for(const num of nums) {
+        result += Math.ceil(num / divisor)
+    }
+    return result
+}
+
+
 var smallestDivisor = function(nums, threshold) {
-    let left = 0;
-    let right = 1e6;
+    let ans = -1
     
-    while (left < right) {
-        const mid = left + Math.floor((right - left) / 2);
-        const sum = nums.reduce((acc, num) => acc + Math.ceil(num / mid), 0);
+    let low = 1
+    let high = nums.reduce((a, b) => Math.max(a, b), nums[0])
+    
+    while(low <= high) {
+        const mid = Math.floor((low + high) / 2)
+        const result = findDivisionSum(nums, mid)
         
-        if (threshold < sum) left = mid + 1;
-        else right = mid;
+        if(result <= threshold) {
+            ans = mid
+            high = mid - 1
+        } else {
+            low = mid + 1
+        }
     }
     
-    return left;
+    return ans
 };
