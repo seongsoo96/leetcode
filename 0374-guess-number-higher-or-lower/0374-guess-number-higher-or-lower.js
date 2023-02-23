@@ -19,10 +19,10 @@ var guessNumber = function(n) {
         switch (guess(mid)) {
             case -1 :
                 high = mid - 1
-                break
+                break;
             case 1 :
                 low = mid + 1
-                break
+                break;
             case 0 :
                 return mid
         }
