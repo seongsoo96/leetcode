@@ -12,7 +12,5 @@
 var deleteNode = function(node) {
     let nextNode = node.next
     node.val = nextNode.val
-    console.log(node)
     node.next = nextNode.next
-    console.log(node)
 };
